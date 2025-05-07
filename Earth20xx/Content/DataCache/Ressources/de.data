@@ -1,0 +1,17 @@
+﻿str_menu = MENU
+str_offline = Offline Game
+str_settings = Einstellungen
+str_exit = Exit
+str_create_offline = Offline Spiel erstellen
+str_back =  < Zurück
+str_maptype = Karten type
+str_mapsize = Karten größe
+str_random = Zufall
+str_verysmall = sehr klein
+str_small = klein
+str_normal = normal
+str_huge = groß
+str_gigantic = sehr groß
+str_victorytype = Siegesziel
+str_points = Punkte
+str_roundlimit = Rundenlimit

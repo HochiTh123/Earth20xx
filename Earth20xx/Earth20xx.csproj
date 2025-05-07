@@ -27,6 +27,28 @@
     <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.2.1105" />
     <PackageReference Include="Myra" Version="1.5.9" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Content\DataCache\Drives\" />
+    <Folder Include="Content\DataCache\Chassies\" />
+    <Folder Include="Content\DataCache\Stories\" />
+    <Folder Include="Content\DataCache\Tiles\" />
+    <Folder Include="Content\DataCache\Weapons\" />
+    <Folder Include="Content\Fonts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Content\DataCache\Ressources\de.data">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Content\DataCache\Ressources\en.data">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Content\DataCache\Ressources\default.data">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="Content\DataCache\Ressources\languages.data">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
   <Target Name="RestoreDotnetTools" BeforeTargets="Restore">
     <Message Text="Restoring dotnet tools" Importance="High" />
     <Exec Command="dotnet tool restore" />
