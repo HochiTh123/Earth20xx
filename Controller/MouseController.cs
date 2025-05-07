@@ -190,7 +190,12 @@ namespace Controller
     {
         public MouseEventArgs(Button button, Vector2 position, int scrollwheeldelta)
         {
-
+            this.Button = button;
+            this.Position = position;
+            this.ScrollWheelDelta = scrollwheeldelta;
         }
+        public Button Button { get; private set; }
+        public Vector2 Position { get; private set; }
+        public int ScrollWheelDelta { get; private set; }
     }
 }
