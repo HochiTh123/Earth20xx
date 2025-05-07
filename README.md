@@ -20,4 +20,4 @@ DEBUG (Debugmodus) -- boolean                      default: false
 SCALE (Scale of the TIles and Units) --- integer     default: 1 (32 x 32)
 FULLSCREEN (Fullscreen Enabled) -- BOOLEAN         default: false 
 
-If you want your default settings. delete the settings.ini in the folder: /Settings/<YourUserName>/
+If you want your default settings. delete the settings.ini in the folder: /Settings/[YourUserName]/
