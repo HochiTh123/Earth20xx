@@ -12,6 +12,8 @@ Story follows soon ...
 
 
 [Ini File Information]
+
+
 RESX (width of the Screen) -- integer               default: ScreenSize.X
 RESY (Height of the Screen) -- integer              default: ScreenSize.Y
 DEBUG (Debugmodus) -- boolean                      default: false
