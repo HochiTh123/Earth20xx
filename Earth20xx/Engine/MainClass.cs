@@ -33,6 +33,8 @@ namespace Earth20xx.Engine
         public Session CurrentSession { get; set; }
         public int CenterX;
         public int CenterY;
+
+        public Controller.MouseController MouseController { get; private set; }
         #endregion
 
         #region publicMethods
@@ -43,6 +45,7 @@ namespace Earth20xx.Engine
             this.Device = game1.GraphicsDevice;
             this.Manager = manager;
             this.Path = this.Content.RootDirectory;
+            this.MouseController = new Controller.MouseController();
             this.User = System.Environment.UserName;
             Myra.MyraEnvironment.Game = game1;
         }
@@ -66,6 +69,7 @@ namespace Earth20xx.Engine
         public void Update(GameTime gameTime)
         {
             this.StateMachine?.Update(gameTime);
+            this.MouseController?.Update(gameTime);
         }
         public void Draw(SpriteBatch spritebatch, GameTime gameTime)
         {
