@@ -1,4 +1,5 @@
-﻿using Earth20xx.GameData;
+﻿using Controller;
+using Earth20xx.GameData;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -31,6 +32,9 @@ namespace Earth20xx.Engine
         public Myra.Graphics2D.UI.Panel SceneDrawPanel { get; private set; }
         public StateMachine StateMachine { get; private set; }
         public Session CurrentSession { get; set; }
+        public TextureController TextureController { get; private set; }
+        public KeyboardController KeyboardController { get; private set; }
+        public SoundController SoundController { get; private set; }
         public int CenterX;
         public int CenterY;
 
@@ -46,6 +50,7 @@ namespace Earth20xx.Engine
             this.Manager = manager;
             this.Path = this.Content.RootDirectory;
             this.MouseController = new Controller.MouseController();
+            this.KeyboardController = new KeyboardController();
             this.User = System.Environment.UserName;
             Myra.MyraEnvironment.Game = game1;
         }
@@ -57,6 +62,8 @@ namespace Earth20xx.Engine
             Desktop = new Myra.Graphics2D.UI.Desktop();
             SceneDrawPanel = new Myra.Graphics2D.UI.Panel();
             Desktop.Widgets.Add(SceneDrawPanel);
+            this.TextureController = new TextureController();
+            this.SoundController = new SoundController();
             this.StateMachine = new StateMachine();
             this.StateMachine.Init();
 
@@ -70,6 +77,8 @@ namespace Earth20xx.Engine
         {
             this.StateMachine?.Update(gameTime);
             this.MouseController?.Update(gameTime);
+            this.KeyboardController?.Update(gameTime);
+            this.SoundController?.Update(gameTime);
         }
         public void Draw(SpriteBatch spritebatch, GameTime gameTime)
         {
