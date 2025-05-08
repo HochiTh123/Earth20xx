@@ -21,6 +21,7 @@ namespace Earth20xx.Engine
         }
         public static MainClass Instance { get { return _instance; } }
         public List<TilePrototype> Prototypes { get; set; }
+        public SfxController SfxController { get; private set; }
         #region vars
         public ContentManager Content { get; private set; }
         public GraphicsDeviceManager Manager { get; private set; }
@@ -66,6 +67,7 @@ namespace Earth20xx.Engine
             Prototypes = new List<TilePrototype>();
             this.TextureController = new TextureController();
             this.SoundController = new SoundController();
+            this.SfxController = new SfxController();
             this.StateMachine = new StateMachine();
             this.StateMachine.Init();
             
