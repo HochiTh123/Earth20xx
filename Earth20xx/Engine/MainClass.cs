@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using System;
+using System.Collections.Generic;
 
 namespace Earth20xx.Engine
 {
@@ -19,7 +20,7 @@ namespace Earth20xx.Engine
 
         }
         public static MainClass Instance { get { return _instance; } }
-
+        public List<TilePrototype> Prototypes { get; set; }
         #region vars
         public ContentManager Content { get; private set; }
         public GraphicsDeviceManager Manager { get; private set; }
@@ -62,10 +63,12 @@ namespace Earth20xx.Engine
             Desktop = new Myra.Graphics2D.UI.Desktop();
             SceneDrawPanel = new Myra.Graphics2D.UI.Panel();
             Desktop.Widgets.Add(SceneDrawPanel);
+            Prototypes = new List<TilePrototype>();
             this.TextureController = new TextureController();
             this.SoundController = new SoundController();
             this.StateMachine = new StateMachine();
             this.StateMachine.Init();
+            
 
         }
         public void PostInit()

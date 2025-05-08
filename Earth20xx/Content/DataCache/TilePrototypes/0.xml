@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TilePrototype xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>Dirt</Name>
+  <ID>0</ID>
+  <MoveAble>true</MoveAble>
+  <TileType>Land</TileType>
+  <Texture>Content/Textures/dirt.png</Texture>
+</TilePrototype>

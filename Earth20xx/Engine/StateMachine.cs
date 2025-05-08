@@ -21,6 +21,7 @@ namespace Earth20xx.Engine
         public void Init()
         {
             this.SceneDrawPanel = MainClass.Instance.SceneDrawPanel;
+            AvailableScenes.Add(new LoadingScene());
             AvailableScenes.Add(new MenuScene());
             AvailableScenes.Add(new OfflineCreateScene());
         }
