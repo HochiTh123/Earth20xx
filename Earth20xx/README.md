@@ -3,6 +3,9 @@ Earth 20xx A turn based strategic game like Battle Isle, Fantasy General or Panz
 With a slightly sarcastic touch ...
 
 Story follows soon ...
+[Discord]
+Check the Discord : https://discord.gg/nJxD2xxR
+
 
 [Story]
 Check Story.txt in Content-Folder
