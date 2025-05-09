@@ -7,6 +7,14 @@ Story follows soon ...
 Check the Discord : https://discord.gg/nJxD2xxR
 
 
+[TBS Info]
+Here some Videos what Game it should become:
+
+https://www.youtube.com/watch?v=nN3dzGlEsC4&list=PLbq7yH_kNDJLkZLs85-AITF6WA6u1vmy-   (Battle Isle 2)
+https://www.youtube.com/watch?v=Z41StBAbXF4&list=PL8F090EC9C134DEAB		(battle Isle 3)
+https://www.youtube.com/watch?v=fzqAsPkKbCs   (Fantasy General)
+
+
 [Story]
 Check Story.txt in Content-Folder
 
