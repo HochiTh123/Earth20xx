@@ -1,0 +1,21 @@
+﻿Sorry Story ist momentan noch in Deutsch,
+werde es aber demnächst in English übersetzten.
+
+
+[Deutsch]
+Die Erde im Jahr 20xx, der Klimawandel lies sich nicht mehr aufhalten,
+und die Länder schlossen neue Bündnisse um diesem Problem zu begegnen.
+In Euroasien formte sich die EDF (European Defense Force), die als primäre
+Aufgabe hatte, Süßwasserreserven für Europa zu sichern und zu erhalten.
+In Amerika bildete sich das ACW (American Common Wealth) welches sich,
+die selben Ziele setzte.
+Die beiden weiteren BÜndnisse sind das ATU (Asian Trade Union) und die
+ASF (Afrian Separatists Force).
+Der Konflikt startete wie es ja schon des öftern war in Europa, als sich die
+Frage stelle ob man den Baikal See erobern / besetzten sollte, da die 
+Süßwasser-reserven in Europa langsam zu neige gingen.
+
+- Der Spieler spielt in der ersten Kampage einen Kommandanten bei der EDF
+ und entscheidet mit seinen Missionsauswahlen den Konflikt der EDF gegen die
+  ATU.
+

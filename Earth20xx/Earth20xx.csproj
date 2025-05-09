@@ -36,6 +36,9 @@
     <Folder Include="Content\Fonts\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="GameData\IMapRandomizer.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Controller\Controller.csproj" />
   </ItemGroup>
   <ItemGroup>

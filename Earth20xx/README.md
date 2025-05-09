@@ -4,7 +4,8 @@ With a slightly sarcastic touch ...
 
 Story follows soon ...
 
-
+[Story]
+Check Story.txt in Content-Folder
 
 [Standard Keybindings]
 
