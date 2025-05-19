@@ -1,4 +1,5 @@
-﻿using Earth20xx.Engine;
+﻿using Controller;
+using Earth20xx.Engine;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -100,6 +101,36 @@ namespace Earth20xx.States
         public void Update(GameTime gameTime)
         {
            
+        }
+
+        public void Mouse_Move(MouseEventArgs e)
+        {
+            
+        }
+
+        public void Mouse_Down(MouseEventArgs e)
+        {
+           
+        }
+
+        public void Mouse_Up(MouseEventArgs e)
+        {
+            
+        }
+
+        public void Mouse_Scroll(MouseEventArgs e)
+        {
+            
+        }
+
+        public void Keyboard_Up(KeyboardEventArgs e)
+        {
+            
+        }
+
+        public void Keyboard_Down(KeyboardEventArgs e)
+        {
+            
         }
     }
 }

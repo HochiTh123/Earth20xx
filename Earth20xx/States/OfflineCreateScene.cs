@@ -421,5 +421,35 @@ namespace Earth20xx.States
         {
             
         }
+
+        public void Mouse_Move(Controller.MouseEventArgs e)
+        {
+            
+        }
+
+        public void Mouse_Down(Controller.MouseEventArgs e)
+        {
+            
+        }
+
+        public void Mouse_Up(Controller.MouseEventArgs e)
+        {
+            
+        }
+
+        public void Mouse_Scroll(Controller.MouseEventArgs e)
+        {
+            
+        }
+
+        public void Keyboard_Up(Controller.KeyboardEventArgs e)
+        {
+           
+        }
+
+        public void Keyboard_Down(Controller.KeyboardEventArgs e)
+        {
+            
+        }
     }
 }
