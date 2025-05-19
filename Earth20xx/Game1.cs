@@ -46,9 +46,10 @@ namespace Earth20xx
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-            MainClass.Instance.Draw(_spriteBatch, gameTime);
+           
+                MainClass.Instance.Draw(_spriteBatch, gameTime);
             // TODO: Add your drawing code here
-
+           
             base.Draw(gameTime);
         }
     }

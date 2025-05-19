@@ -1,55 +1,74 @@
-﻿using Lidgren.Network;
+﻿using System.Net.Sockets;
 using System.Net;
+using Microsoft.Xna.Framework;
+using System.Security.Cryptography.X509Certificates;
 
 namespace NetWork
 {
     public class Client
     {
-        public Lidgren.Network.NetClient ThisClient;
+        public UdpClient UdpClient;
         public IPEndPoint Server;
-        public NetConnection Connection;
-        private NetConnectionStatus _status;
-        public NetConnectionStatus Status
+        public void Init(IPAddress server, int port)
         {
-            get
-            {
-                return _status;
-            }
-            set
-            {
-                if (value != _status)
-                {
-                    _status = value;
-                    NetStatusEventArgs e = new NetStatusEventArgs(_status);
-                    OnStatusChanged(e);
-                }
-            }
+            Server = new IPEndPoint(server, port);
+            UdpClient = new UdpClient();
+            UdpClient.ExclusiveAddressUse = false;
         }
-        public event EventHandler<NetStatusEventArgs> StatusChanged;
-        private void OnStatusChanged( NetStatusEventArgs e)
-        {
-            StatusChanged?.Invoke(this, e);
-        }
-        public void Init()
-        {
-            ThisClient = new Lidgren.Network.NetClient(new Lidgren.Network.NetPeerConfiguration("EARTH"));
-          
-        }
-
-        public void Connect(IPEndPoint server)
+        public void Init(IPEndPoint server)
         {
             this.Server = server;
-            Connection = this.ThisClient.Connect(server);
-           
+            UdpClient = new UdpClient();
+            UdpClient.ExclusiveAddressUse = false;
         }
+        public event EventHandler<MessageReceivedEventArgs> MessageReceived;
+        private void OnMessageReceived(MessageReceivedEventArgs e)
+        {
+            MessageReceived?.Invoke(this, e);
+        }
+        public void SendMessage(string message)
+        {
+            var buffer = System.Text.Encoding.ASCII.GetBytes(message);
+            SendMessage(buffer);
+        }
+
+        public void SendMessage(byte[] buffer)
+        {
+            UdpClient.Send(buffer, buffer.Length, Server);
+        }
+
+        public void Update()
+        {
+            if (UdpClient.Available > 0)
+            {
+                IPEndPoint sender = null;
+                var message = UdpClient.Receive(ref sender);
+                ReceivedMessage re = new ReceivedMessage(sender, message);
+                MessageReceivedEventArgs m = new MessageReceivedEventArgs(re);
+                OnMessageReceived(m);
+            }
+        }
+    }
+    public class MessageReceivedEventArgs
+    {
+        public MessageReceivedEventArgs(ReceivedMessage message)
+        {
+            this.Message = message;
+        }
+        public ReceivedMessage Message { get; private set; }
+    }
+    public class ReceivedMessage
+    {
+        public ReceivedMessage(IPEndPoint sender, byte[] data)
+        {
+            this.Sender = sender;
+            this.Buffer = data;
+            this.Message = System.Text.Encoding.ASCII.GetString(this.Buffer);
+        }
+        public IPEndPoint Sender;
+        public Byte[] Buffer;
+        public string Message;
     }
 
-    public class NetStatusEventArgs : EventArgs
-    {
-        public NetStatusEventArgs(NetConnectionStatus status)
-        {
-            this.Status = status;
-        }
-        public NetConnectionStatus Status { get; private set; }
-    }
+   
 }

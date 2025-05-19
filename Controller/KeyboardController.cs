@@ -32,8 +32,8 @@ namespace Controller
             KeyDown?.Invoke(this, e);
         }
 
-        private bool[] okeys;
-        private bool[] nkeys;
+        private readonly bool[] okeys;
+        private readonly bool[] nkeys;
 
         bool shift = false;
         bool ctrl = false;
@@ -57,12 +57,12 @@ namespace Controller
                 {
                     if (nkeys[i] == true && okeys[i] == false) // KEYDOWN
                     {
-                        KeyboardEventArgs e = new KeyboardEventArgs((Keys)i, shift, alt, ctrl);
+                        KeyboardEventArgs e = new((Keys)i, shift, alt, ctrl);
                         OnKeyDown(e);
                     }
                     if (nkeys[i] == false && okeys[i] == true) // KEyUp
                     {
-                        KeyboardEventArgs e = new KeyboardEventArgs((Keys)i, shift, alt, ctrl);
+                        KeyboardEventArgs e = new((Keys)i, shift, alt, ctrl);
                         OnKeyUp(e);
                     }
                 }
@@ -75,7 +75,7 @@ namespace Controller
 
     public class KeyboardEventArgs : EventArgs
     {
-        public KeyboardEventArgs(Keys key, bool shift, bool alt, bool ctrl)
+        public KeyboardEventArgs(Keys key, bool shift, bool alt, bool ctrl) : base()
         {
             this.Keys = key;
             this.Alt = alt;

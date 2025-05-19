@@ -6,6 +6,7 @@ using Myra.Graphics2D.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.ObjectiveC;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -33,7 +34,7 @@ namespace Earth20xx.States
             MainClass.Instance.CurrentSession = new GameData.Session();
             MainClass.Instance.CurrentSession.ResetSession(GameData.SessionType.Offline);
             MainClass.Instance.CurrentSession.SetPlayerCount(2);
-
+            MainClass.Instance.Camera2D.Position = new Vector2(MainClass.Instance.Device.Viewport.Width / 2, MainClass.Instance.Device.Viewport.Width / 2);
 
             HeaderLabel = new Myra.Graphics2D.UI.Label()
             {
@@ -63,7 +64,7 @@ namespace Earth20xx.States
             PlayerPanel = new Myra.Graphics2D.UI.Panel()
             {
                 Top = 0,
-                Width = 520,
+                Width = 820,
                 Height = 500,
                 Left = 0
             };
@@ -96,34 +97,57 @@ namespace Earth20xx.States
             int top = 30;
             Button minusbutton = new Button()
             {
-                Top = 0,
-                Left = 620,
-                Width = 20,
+                Top = 2,
+                Left = 720,
+                Width = 50,
                 Height = 20,
                 Content = new Label() { Text = "-" }
             };
             PlayerPanel.Widgets.Add(minusbutton);
             if (MainClass.Instance.CurrentSession.Players.Count <= 2)
-                minusbutton.Enabled = false;
+                minusbutton.Enabled = true;
             else
                 minusbutton.Enabled = true;
             Button plusbutton = new Button()
             {
-                Top = 0,
-                Left = 650,
-                Width = 20,
+                Top = 2,
+                Left = 780,
+                Width = 50,
                 Height = 20,
                 Content = new Label() { Text = "+" }
             };
+            Button twoTeams = new Button()
+            {
+                Top = 40,
+                Left = 720,
+                Width = 100,
+                Height = 20,
+                Content = new Label() { Text = "2 Teams" }
+            };
+            PlayerPanel.Widgets.Add(twoTeams);
+            Button NoTeams = new Button()
+            {
+                Top = 70,
+                Left = 720,
+                Width = 100,
+                Height = 20,
+                Content = new Label() { Text = "no Teams" }
+            };
+            PlayerPanel.Widgets.Add(NoTeams);
+
             PlayerPanel.Widgets.Add(plusbutton);
             if (MainClass.Instance.CurrentSession.Players.Count >= 12)
             {
-                PlayerPanel.Enabled = false;
+                plusbutton.Enabled = true;
             }
             else
             {
-                PlayerPanel.Enabled = true;
+                plusbutton.Enabled = true;
             }
+            minusbutton.Click += new EventHandler(MinusButton_CLicked);
+            plusbutton.Click += new EventHandler(PlusButton_Clicked);
+            twoTeams.Click += new EventHandler(TwoTeams_Clicked);
+            NoTeams.Click += new EventHandler(NoTeams_Clicked);
                 foreach (var p in MainClass.Instance.CurrentSession.Players)
                 {
                     Myra.Graphics2D.UI.TextBox tb = new Myra.Graphics2D.UI.TextBox()
@@ -174,6 +198,7 @@ namespace Earth20xx.States
                         Width = 100
                     };
                     FractionBox.ListView.Tag = p.PlayerID.ToString();
+                FractionBox.Widgets.Add(new Label() { Text = "Random" });
                     FractionBox.Widgets.Add(new Label() { Text = "EDF" });
                     FractionBox.SelectedIndex = 0;
 
@@ -202,6 +227,46 @@ namespace Earth20xx.States
 
                     top += 30;
                 }
+        }
+        private void NoTeams_Clicked(object sender, EventArgs e)
+        {
+            for (int i = 0; i < MainClass.Instance.CurrentSession.Players.Count;i++)
+            {
+                MainClass.Instance.CurrentSession.Players[i].Team = 0;
+            }
+            DrawPlayers();
+        }
+        private void TwoTeams_Clicked(object sender, EventArgs e)
+        {
+            int center = MainClass.Instance.CurrentSession.Players.Count / 2;
+            for (int i = 0; i < MainClass.Instance.CurrentSession.Players.Count;i++)
+            {
+                if (i < center)
+                {
+                    MainClass.Instance.CurrentSession.Players[i].Team = 1;
+                }
+                else
+                {
+                    MainClass.Instance.CurrentSession.Players[i].Team = 2;
+                }
+            }
+            DrawPlayers();
+        }
+        private void PlusButton_Clicked(object sender, EventArgs e)
+        {
+            if (MainClass.Instance.CurrentSession.Players.Count < 12)
+            {
+                MainClass.Instance.CurrentSession.SetPlayerCount(MainClass.Instance.CurrentSession.Players.Count + 1);
+                DrawPlayers();
+            }
+        }
+        private void MinusButton_CLicked(object sender, EventArgs e)
+        {
+            if (MainClass.Instance.CurrentSession.Players.Count > 2)
+            {
+                MainClass.Instance.CurrentSession.SetPlayerCount(MainClass.Instance.CurrentSession.Players.Count - 1);
+                DrawPlayers();
+            }
         }
         public void DrawGame()
         {

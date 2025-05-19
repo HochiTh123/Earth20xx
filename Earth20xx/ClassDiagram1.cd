@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Controller.KeyboardController">
+    <Position X="0.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Controller.KeyboardEventArgs">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Controller.Button">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Controller.MouseController">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Controller.MouseEventArgs">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Controller.SfxController">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Controller.MySfx">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Controller.SoundController">
+    <Position X="2.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Controller.MySong">
+    <Position X="0.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Controller.TextureController">
+    <Position X="4.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Earth20xx.Engine.Camera2D">
+    <Position X="0.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAECAAAAAAIAwEAAAAAAAAAAEAAAAAAAAgAIAAAA=</HashCode>
+      <FileName>Engine\Camera2D.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Earth20xx.Engine.MainClass">
+    <Position X="2.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQFAIwAAghgAgIAmABAAAAAAAiAJCEA4AACgAAACAA=</HashCode>
+      <FileName>Engine\MainClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Earth20xx.Engine.Settings">
+    <Position X="4.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAYIIAACAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Engine\Settings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Earth20xx.Engine.StateMachine">
+    <Position X="6.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQABAAAAAAAAgAQAABICAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Engine\StateMachine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Earth20xx.Engine.TilePrototype">
+    <Position X="9.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAQAAgAgAAAAAAIQAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>Engine\TilePrototype.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Earth20xx.GameData.FractialGenerator">
+    <Position X="4.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAiAAAAAAQAAAAAAAAAAAAggIBIEBAACAAAAAQA=</HashCode>
+      <FileName>GameData\FractialGenerator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Earth20xx.GameData.FacPoints">
+    <Position X="6.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAYAA=</HashCode>
+      <FileName>GameData\FractialGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Earth20xx.GameData.Session">
+    <Position X="9.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABggAAAAAAAAAAABAQIQAAgABAAAiCAAQAAAAA=</HashCode>
+      <FileName>GameData\Session.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Earth20xx.GameData.Player">
+    <Position X="8" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAAAAAEAgAAAAAAAAEAgAAAAAAAA=</HashCode>
+      <FileName>GameData\Session.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Earth20xx.States.LoadingScene">
+    <Position X="0.75" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAQAAACAAAAAkgAAAAAAAAAQAAEAAAAAAAACAAAAAIA=</HashCode>
+      <FileName>States\LoadingScene.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Earth20xx.States.MenuScene">
+    <Position X="2.5" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAQAAACAAAAgggQAAAAAAAAAAAEAAACAAAACAAAAAAA=</HashCode>
+      <FileName>States\MenuScene.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Earth20xx.States.OfflineCreateScene">
+    <Position X="4.5" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>KAQgYDCAAAAAQgAAAQAFACAAAAUAAAAAAAACAAAiABA=</HashCode>
+      <FileName>States\OfflineCreateScene.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Earth20xx.Game1">
+    <Position X="6.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAwAAAAAAAAAAAAAAAAACAIAAAAAAAAQ=</HashCode>
+      <FileName>Game1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Earth20xx.Engine.IScene">
+    <Position X="8" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAQAAACAAAAAAgAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Engine\StateMachine.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Earth20xx.GameData.IMapRandomizer">
+    <Position X="8" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>GameData\IMapRandomizer.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Earth20xx.Engine.Type">
+    <Position X="11.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Engine\TilePrototype.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Earth20xx.GameData.SessionType">
+    <Position X="11.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>GameData\Session.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Earth20xx.GameData.PlayerType">
+    <Position X="11.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAQAA=</HashCode>
+      <FileName>GameData\Session.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

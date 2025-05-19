@@ -29,6 +29,7 @@ namespace Earth20xx.States
         int findex;
         public void Init()
         {
+            MainClass.Instance.Camera2D.Position = new Vector2(MainClass.Instance.Device.Viewport.Width / 2, MainClass.Instance.Device.Viewport.Height / 2);
             var di = new System.IO.DirectoryInfo(MainClass.Instance.Content.RootDirectory + "/DataCache/");
             if (!di.Exists)
                 di.Create();

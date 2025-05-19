@@ -40,8 +40,9 @@ namespace Controller
             {
                 Songs[i].Load();
             }
-            index = 0;
+            index = -1;
             loaded = true;
+            NextSong();
         }
 
         public void NextSong()

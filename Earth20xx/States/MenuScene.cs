@@ -26,9 +26,20 @@ namespace Earth20xx.States
         public Myra.Graphics2D.UI.Button OfflineGameButton;
         public Myra.Graphics2D.UI.Button SettingsButton;
         public Myra.Graphics2D.UI.Button ExitButton;
-
+        public Myra.Graphics2D.UI.Label VersionsLabel;
         public void Init()
         {
+            MainClass.Instance.Camera2D.Position = new Vector2(MainClass.Instance.Device.Viewport.Width / 2, MainClass.Instance.Device.Viewport.Height / 2);
+            VersionsLabel = new Myra.Graphics2D.UI.Label()
+            {
+                Top = 10,
+                Left = 0,
+                Width = 100,
+                Height = 20,
+                Text = "Version: " + MainClass.Instance.Version
+            };
+           
+
             HeaderLabel = new Myra.Graphics2D.UI.Label()
             {
                 Top = 10,
@@ -65,7 +76,7 @@ namespace Earth20xx.States
             };
 
 
-
+            MainClass.Instance.SceneDrawPanel.Widgets.Add(VersionsLabel);
             MainClass.Instance.SceneDrawPanel.Widgets.Add(HeaderLabel);
             MainClass.Instance.SceneDrawPanel.Widgets.Add(OfflineGameButton);
             MainClass.Instance.SceneDrawPanel.Widgets.Add(SettingsButton);

@@ -3,8 +3,11 @@ using Earth20xx.GameData;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using NetWork;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Runtime.CompilerServices;
 
 namespace Earth20xx.Engine
 {
@@ -19,9 +22,20 @@ namespace Earth20xx.Engine
         {
 
         }
+        private string _version = "0.01";
+        private string _versionprefab = "pre Alpha";
+        public string Version
+        {
+            get
+            {
+                return _version + " " + _versionprefab;
+            }
+        }
         public static MainClass Instance { get { return _instance; } }
         public List<TilePrototype> Prototypes { get; set; }
         public SfxController SfxController { get; private set; }
+        public Camera2D? Camera2D { get; private set; }
+        public NetWork.Server Server { get; private set; }
         #region vars
         public ContentManager Content { get; private set; }
         public GraphicsDeviceManager Manager { get; private set; }
@@ -55,6 +69,13 @@ namespace Earth20xx.Engine
             this.KeyboardController = new KeyboardController();
             this.User = System.Environment.UserName;
             Myra.MyraEnvironment.Game = game1;
+            this.Camera2D = new Camera2D()
+            {
+                Zoom = 1f,
+                Position = new Vector2(MainClass.Instance.Device.Viewport.Width / 2, MainClass.Instance.Device.Viewport.Height / 2)
+            };
+            this.Server = new Server();
+
         }
 
         public void Init()
@@ -87,8 +108,19 @@ namespace Earth20xx.Engine
         }
         public void Draw(SpriteBatch spritebatch, GameTime gameTime)
         {
-            
-            this.StateMachine?.Draw(spritebatch, gameTime);
+            if (Camera2D != null)
+            {
+                spritebatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, Camera2D.GetTransformation());
+               
+            }
+            else
+            {
+                spritebatch.Begin();
+            }
+                this.StateMachine?.Draw(spritebatch, gameTime);
+
+            spritebatch.End();
+            // UI over Spritebatch  ;
             this.Desktop.Render();
         }
 

@@ -14,8 +14,7 @@ namespace Earth20xx.GameData
         private float prozforest;
         private float prozhills;
        public ushort[,] Tiles;
-        int xindex = -1;
-        int yindex = -1;
+      
         int step = 0;
         public Random Randomizer = new Random();
         public void Init(float prozwater, bool river, float prozforest, float prozhills,  ushort[,] tiles)
