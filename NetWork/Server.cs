@@ -81,9 +81,9 @@ namespace NetWork
 
         }
 
-        private void WorkOnMessage(ReceivedMessage message)
+        private void WorkOnMessage(Serverrecmessage message)
         {
-            WriteInConsole("Message Received: " + message.Message);
+            WriteInConsole("Message Received: " + System.Text.Encoding.ASCII.GetString(message.Buffer));
             // First byte is the MessageByte 
             byte first = message.Buffer[0];
             switch(first)
