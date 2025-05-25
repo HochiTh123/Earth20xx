@@ -36,6 +36,8 @@ namespace Earth20xx.Engine
         public SfxController SfxController { get; private set; }
         public Camera2D? Camera2D { get; private set; }
         public NetWork.Server Server { get; private set; }
+        public LanguageManager LanguageManager { get; private set; }
+        public Map Map;
         #region vars
         public ContentManager Content { get; private set; }
         public GraphicsDeviceManager Manager { get; private set; }
@@ -62,6 +64,8 @@ namespace Earth20xx.Engine
         {
             this.Game = game1;
             this.Content = game1.Content;
+            this.LanguageManager = new LanguageManager();
+            this.LanguageManager.LangIndex = 0;
             this.Device = game1.GraphicsDevice;
             this.Manager = manager;
             this.Path = this.Content.RootDirectory;
@@ -69,11 +73,7 @@ namespace Earth20xx.Engine
             this.KeyboardController = new KeyboardController();
             this.User = System.Environment.UserName;
             Myra.MyraEnvironment.Game = game1;
-            this.Camera2D = new Camera2D()
-            {
-                Zoom = 1f,
-                Position = new Vector2(MainClass.Instance.Device.Viewport.Width / 2, MainClass.Instance.Device.Viewport.Height / 2)
-            };
+          
             this.Server = new Server();
 
         }
@@ -86,6 +86,11 @@ namespace Earth20xx.Engine
             SceneDrawPanel = new Myra.Graphics2D.UI.Panel();
             Desktop.Widgets.Add(SceneDrawPanel);
             Prototypes = new List<TilePrototype>();
+            this.Camera2D = new Camera2D()
+            {
+                Zoom = 1f,
+                Position = new Vector2(MainClass.Instance.Device.Viewport.Width / 2, MainClass.Instance.Device.Viewport.Height / 2)
+            };
             this.TextureController = new TextureController();
             this.SoundController = new SoundController();
             this.SfxController = new SfxController();

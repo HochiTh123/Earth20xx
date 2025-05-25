@@ -91,6 +91,15 @@ namespace Earth20xx.GameData
                    
                 }
             }
+            int nearest = 9999999;
+            FacPoints? current = null;
+            for (int x = 0;  x <= Tiles.GetUpperBound(0);x++)
+            {
+                for (int y = 0; y <= Tiles.GetUpperBound(1);y++)
+                {
+
+                }
+            }
          
         }
     }

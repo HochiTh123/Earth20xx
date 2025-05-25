@@ -52,12 +52,11 @@ namespace Controller
             }
             set
             {
-                if (value != _position)
-                {
+               
                     _position = value;
                     MouseEventArgs e = new MouseEventArgs(Button.None, _position, scrollwheeldelta);
                     OnMouseMove(e);
-                }
+                
             }
         }
         public int ScrollWheelValue

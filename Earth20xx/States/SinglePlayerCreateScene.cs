@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Earth20xx.States
 {
-    public class OfflineCreateScene : IScene
+    public class SinglePlayerCreateScene : IScene
     {
         public void Draw(SpriteBatch spritebatch, GameTime gameTime)
         {
@@ -21,7 +21,7 @@ namespace Earth20xx.States
 
         public string GetTag()
         {
-            return "OFFLINECREATE";
+            return "SINGLEPLAYERCREATE";
         }
         public Myra.Graphics2D.UI.Label HeaderLabel;
         public Myra.Graphics2D.UI.Button BackButton;
@@ -89,185 +89,9 @@ namespace Earth20xx.States
         public void DrawPlayers()
         {
             PlayerPanel.Widgets.Clear();
-            PlayerPanel.Widgets.Add(new Myra.Graphics2D.UI.Label() { Top = 0, Left = 2, Width = 100, Text = MainClass.Instance.LanguageManager.GetString("str_player") });
-            PlayerPanel.Widgets.Add(new Myra.Graphics2D.UI.Label() { Top = 0, Left = 104, Width = 100, Text = MainClass.Instance.LanguageManager.GetString("str_color") });
-            PlayerPanel.Widgets.Add(new Myra.Graphics2D.UI.Label() { Top = 0, Left = 206, Width = 100, Text = MainClass.Instance.LanguageManager.GetString("str_team") });
-            PlayerPanel.Widgets.Add(new Myra.Graphics2D.UI.Label() { Top = 0, Left = 308, Width = 100, Text = MainClass.Instance.LanguageManager.GetString("str_character") });
-            PlayerPanel.Widgets.Add(new Myra.Graphics2D.UI.Label() { Top = 0, Left = 410, Width = 100, Text = MainClass.Instance.LanguageManager.GetString("str_playertype") });
-            int top = 30;
-            Button minusbutton = new Button()
-            {
-                Top = 2,
-                Left = 720,
-                Width = 50,
-                Height = 20,
-                Content = new Label() { Text = "-" }
-            };
-            PlayerPanel.Widgets.Add(minusbutton);
-            if (MainClass.Instance.CurrentSession.Players.Count <= 2)
-                minusbutton.Enabled = true;
-            else
-                minusbutton.Enabled = true;
-            Button plusbutton = new Button()
-            {
-                Top = 2,
-                Left = 780,
-                Width = 50,
-                Height = 20,
-                Content = new Label() { Text = "+" }
-            };
-            Button twoTeams = new Button()
-            {
-                Top = 40,
-                Left = 720,
-                Width = 100,
-                Height = 20,
-                Content = new Label() { Text = MainClass.Instance.LanguageManager.GetString("str_2teams") }
-            };
-            PlayerPanel.Widgets.Add(twoTeams);
-            Button NoTeams = new Button()
-            {
-                Top = 70,
-                Left = 720,
-                Width = 100,
-                Height = 20,
-                Content = new Label() { Text = MainClass.Instance.LanguageManager.GetString("str_noteam") }
-            };
-            PlayerPanel.Widgets.Add(NoTeams);
-
-            PlayerPanel.Widgets.Add(plusbutton);
-            if (MainClass.Instance.CurrentSession.Players.Count >= 12)
-            {
-                plusbutton.Enabled = true;
-            }
-            else
-            {
-                plusbutton.Enabled = true;
-            }
-            minusbutton.Click += new EventHandler(MinusButton_CLicked);
-            plusbutton.Click += new EventHandler(PlusButton_Clicked);
-            twoTeams.Click += new EventHandler(TwoTeams_Clicked);
-            NoTeams.Click += new EventHandler(NoTeams_Clicked);
-                foreach (var p in MainClass.Instance.CurrentSession.Players)
-                {
-                    Myra.Graphics2D.UI.TextBox tb = new Myra.Graphics2D.UI.TextBox()
-                    {
-                        Top = top,
-                        Left = 2,
-                        Width = 100,
-                        Text = p.PlayerName,
-                        Tag = p.PlayerID.ToString()
-                    };
-                    tb.TextChanged += new EventHandler<Myra.Events.ValueChangedEventArgs<string>>(PlayerNameChanged);
-
-                    Myra.Graphics2D.UI.ComboView cb = new ComboView()
-                    {
-                        Top = top,
-                        Left = 104,
-                        Width = 100,
-                        Tag = p.PlayerID.ToString()
-
-
-                    };
-                    cb.ListView.Tag = p.PlayerID.ToString();
-                    cb.Widgets.Add(new Myra.Graphics2D.UI.Label() { Text = p.PlayerColor.GetColorName(), TextColor = p.PlayerColor });
-                    foreach (var c in MainClass.Instance.CurrentSession.AvailableColors)
-                    {
-                        cb.Widgets.Add(new Myra.Graphics2D.UI.Label() { Text = c.GetColorName(), TextColor = c });
-                    }
-                    cb.SelectedIndex = 0;
-
-                    Myra.Graphics2D.UI.ComboView teambox = new ComboView()
-                    {
-                        Top = top,
-                        Left = 206,
-                        Width = 100
-                    };
-                    teambox.ListView.Tag = p.PlayerID.ToString();
-                    teambox.Widgets.Add(new Label() { Text = MainClass.Instance.LanguageManager.GetString("str_none") });
-                    teambox.Widgets.Add(new Label() { Text = "A" });
-                    teambox.Widgets.Add(new Label() { Text = "B" });
-                    teambox.Widgets.Add(new Label() { Text = "C" });
-                    teambox.Widgets.Add(new Label() { Text = "D" });
-                    teambox.SelectedIndex = p.Team;
-
-                    Myra.Graphics2D.UI.ComboView FractionBox = new ComboView()
-                    {
-                        Top = top,
-                        Left = 308,
-                        Width = 100
-                    };
-                    FractionBox.ListView.Tag = p.PlayerID.ToString();
-                FractionBox.Widgets.Add(new Label() { Text = MainClass.Instance.LanguageManager.GetString("str_random") });
-                    FractionBox.Widgets.Add(new Label() { Text = MainClass.Instance.LanguageManager.GetString("str_character0") });
-                    FractionBox.SelectedIndex = 0;
-
-                    Myra.Graphics2D.UI.ComboView TypeBox = new ComboView()
-                    {
-                        Top = top,
-                        Left = 410,
-                        Width = 100
-                    };
-                    TypeBox.ListView.Tag = p.PlayerID.ToString();
-                    TypeBox.Widgets.Add(new Label() { Text = MainClass.Instance.LanguageManager.GetString("str_local") });
-                    TypeBox.SelectedIndex = 0;
-                    PlayerPanel.Widgets.Add(tb);
-                    PlayerPanel.Widgets.Add(cb);
-
-                    cb.SelectedIndexChanged += new EventHandler(ColorIndexChanged);
-
-                    PlayerPanel.Widgets.Add(teambox);
-                    teambox.SelectedIndexChanged += new EventHandler(TeamChanged);
-
-                    PlayerPanel.Widgets.Add(FractionBox);
-
-                    PlayerPanel.Widgets.Add(TypeBox);
-
-
-
-                    top += 30;
-                }
         }
-        private void NoTeams_Clicked(object sender, EventArgs e)
-        {
-            for (int i = 0; i < MainClass.Instance.CurrentSession.Players.Count;i++)
-            {
-                MainClass.Instance.CurrentSession.Players[i].Team = 0;
-            }
-            DrawPlayers();
-        }
-        private void TwoTeams_Clicked(object sender, EventArgs e)
-        {
-            int center = MainClass.Instance.CurrentSession.Players.Count / 2;
-            for (int i = 0; i < MainClass.Instance.CurrentSession.Players.Count;i++)
-            {
-                if (i < center)
-                {
-                    MainClass.Instance.CurrentSession.Players[i].Team = 1;
-                }
-                else
-                {
-                    MainClass.Instance.CurrentSession.Players[i].Team = 2;
-                }
-            }
-            DrawPlayers();
-        }
-        private void PlusButton_Clicked(object sender, EventArgs e)
-        {
-            if (MainClass.Instance.CurrentSession.Players.Count < 12)
-            {
-                MainClass.Instance.CurrentSession.SetPlayerCount(MainClass.Instance.CurrentSession.Players.Count + 1);
-                DrawPlayers();
-            }
-        }
-        private void MinusButton_CLicked(object sender, EventArgs e)
-        {
-            if (MainClass.Instance.CurrentSession.Players.Count > 2)
-            {
-                MainClass.Instance.CurrentSession.SetPlayerCount(MainClass.Instance.CurrentSession.Players.Count - 1);
-                DrawPlayers();
-            }
-        }
+      
+      
         public void DrawGame()
         {
             if (GameSettingsPanel == null)
