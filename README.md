@@ -1,5 +1,4 @@
-Earth 20xx A turn based strategic game like Battle Isle, Fantasy General or Panzer General
-
+Earth 20xx A turn based strategic game 
 With a slightly sarcastic touch ...
 
 Story follows soon ...
