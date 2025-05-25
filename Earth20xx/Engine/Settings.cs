@@ -13,5 +13,7 @@ namespace Earth20xx.Engine
         public int ResolutionX { get; set; } = 1024;
         public int ResolutionY { get; set; } = 768;
         public bool FullScreen { get; set; } = false;
+        public bool ShowGrid { get; set; } = true;
+        public int ScrollSpeed { get; set; } = 32;
     }
 }

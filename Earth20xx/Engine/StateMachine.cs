@@ -27,6 +27,9 @@ namespace Earth20xx.Engine
             AvailableScenes.Add(new LoadingScene());
             AvailableScenes.Add(new MenuScene());
             AvailableScenes.Add(new OfflineCreateScene());
+            AvailableScenes.Add(new SinglePlayerCreateScene());
+            AvailableScenes.Add(new SettingsScene());
+            AvailableScenes.Add(new MapTestScene());
             MainClass.Instance.MouseController.MouseMove += new EventHandler<Controller.MouseEventArgs>(Mouse_Move);
             MainClass.Instance.MouseController.MouseDown += new EventHandler<Controller.MouseEventArgs>(Mouse_Down);
             MainClass.Instance.MouseController.MouseUp += new EventHandler<Controller.MouseEventArgs>(Mouse_Up);
